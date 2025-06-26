@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.9'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+bootJar {
+   enabled = false //Spring Boot용 실행 가능한 .jar 파일을 생성하지 않겠다. *내장 톰캣, 의존성 등 포함 .jar
+}
+
+jar {
+    enabled = false // 일반적인 Java .jar 파일도 생성하지 않겠다. *순수 클래스 파일만 포함 -plain.jar
+}
