@@ -1,0 +1,16 @@
+# Gradle build folder
+/build/
+
+# IntelliJ
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Etc
+/out/
