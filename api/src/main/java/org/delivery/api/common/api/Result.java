@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.delivery.api.common.error.ErrorCode;
+import org.delivery.api.common.error.ErrorCodeIfs;
 
 @Data
 @AllArgsConstructor
@@ -14,11 +16,35 @@ public class Result {
     private String resultMessage;
     private String resultDescription;
 
-    public static Result Ok(){
+    public static Result OK(){
         return Result.builder()
-                .resultCode(200)
-                .resultMessage("성공")
-                .resultDescription("OK")
+                .resultCode(ErrorCode.OK.getErrorCode())
+                .resultMessage(ErrorCode.OK.getErrorMessage())
+                .resultDescription("성공")
+                .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs){
+        return Result.builder()
+                .resultCode(ErrorCode.OK.getErrorCode())
+                .resultMessage(ErrorCode.OK.getErrorMessage())
+                .resultDescription("에러")
+                .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs, Throwable tx){
+        return Result.builder()
+                .resultCode(ErrorCode.OK.getErrorCode())
+                .resultMessage(ErrorCode.OK.getErrorMessage())
+                .resultDescription(tx.getLocalizedMessage())
+                .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs, String errorMsg){
+        return Result.builder()
+                .resultCode(ErrorCode.OK.getErrorCode())
+                .resultMessage(ErrorCode.OK.getErrorMessage())
+                .resultDescription(errorMsg)
                 .build();
     }
 }
