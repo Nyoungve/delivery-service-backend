@@ -40,9 +40,9 @@ public class Api<T> {
                 .build();
     }
 
-    public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs, String errorMsg){
+    public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs, String description){
         return Api.<Object>builder()
-                .result(Result.ERROR(errorCodeIfs, errorMsg))
+                .result(Result.ERROR(errorCodeIfs, description))
                 .build();
     }
 
