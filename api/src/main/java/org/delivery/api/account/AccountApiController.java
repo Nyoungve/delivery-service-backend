@@ -39,6 +39,7 @@ public class AccountApiController {
             Integer.parseInt(str);
         }catch (Exception e){
             throw new ApiException(ErrorCode.SERVER_ERROR, e , "사용자 Me 호출시 에러 발생.");
+            //throw new ApiException(ErrorCode.SERVER_ERROR, e , e.getMessage());
         }
 
 

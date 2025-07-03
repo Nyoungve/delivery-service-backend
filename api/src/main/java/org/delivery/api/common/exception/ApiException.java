@@ -29,7 +29,7 @@ public class ApiException extends RuntimeException implements ApiExceptionIfs{
     }
 
     public ApiException(ErrorCodeIfs errorCodeIfs, Throwable tx, String errorCodeMessage){
-        super(tx);
+        super(errorCodeMessage, tx);
         this.errorCodeIfs = errorCodeIfs;
         this.errorCodeMessage = errorCodeMessage;
     }
