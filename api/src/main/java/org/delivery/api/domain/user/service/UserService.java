@@ -5,6 +5,7 @@ import org.delivery.api.common.api.Api;
 import org.delivery.api.common.error.ErrorCode;
 import org.delivery.api.common.error.UserErrorCode;
 import org.delivery.api.common.exception.ApiException;
+import org.delivery.api.domain.token.controller.model.TokenResponse;
 import org.delivery.db.user.UserEntity;
 import org.delivery.db.user.UserRepository;
 import org.delivery.db.user.enums.UserStatus;
@@ -48,6 +49,15 @@ public class UserService {
         return userRepository.findFirstByEmailAndPasswordAndStatusOrderByIdDesc(
                 email,
                 password,
+                UserStatus.REGISTERED
+        ).orElseThrow(()->new ApiException(UserErrorCode.USER_NOT_FOUND));
+    }
+
+    public UserEntity getUserWithThrow(
+            Long userId
+    ){
+        return userRepository.findFirstByIdAndStatusOrderByIdDesc(
+                userId,
                 UserStatus.REGISTERED
         ).orElseThrow(()->new ApiException(UserErrorCode.USER_NOT_FOUND));
     }
