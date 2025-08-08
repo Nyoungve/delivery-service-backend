@@ -1,9 +1,6 @@
 package org.delivery.db.storemenu;
 
-import lombok.AllArgsConstructor;
-import lombok.Cleanup;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
 import org.delivery.db.storemenu.enums.StoreMenuStatus;
@@ -13,6 +10,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name="store_menu")
+@Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
